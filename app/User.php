@@ -39,7 +39,11 @@ class User extends Authenticatable
 
     public function timeline()
     {
-        return Tweet::where('user_id', $this->id)->latest()->get();
+        $friends = $this->follows()->pluck('id');
+        return Tweet::whereIn('user_id', $friends)
+            ->orWhere('user_id', $this->id)
+            ->latest()->get();
+        // return Tweet::where('user_id', $this->id)->latest()->get();
     }
 
     public function avatar() {
@@ -49,6 +53,11 @@ class User extends Authenticatable
     public function follow(User $user)
     {
         return $this->follows()->save($user);
+    }
+
+    public function tweets()
+    {
+        return $this->hasMany(Tweet::class);
     }
 
     public function follows() {
