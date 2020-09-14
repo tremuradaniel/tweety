@@ -13,4 +13,4 @@
             <p class="text-red-300 text-sm">{{$message}}</p>
         @enderror
     </form>
-</div> 
+</div>

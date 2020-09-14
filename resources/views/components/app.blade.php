@@ -1,6 +1,6 @@
 <x-master>
     <section class="px-8">
-        <main class="container mx-auto">
+        <main class="container mx-auto mb-4">
             <div class="md:flex bg:justify-between">
                 @if(auth()->check())
                     <div class="md:w-32">
