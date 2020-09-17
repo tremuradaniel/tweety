@@ -16,10 +16,12 @@
                     <p>Joined {{ $user->created_at->diffForHumans() }}</p>
             </div>
             <div class="flex">
-                <button 
-                    type="submit" 
-                    class="bg-blue-500 rounded-lg shadow py-2 px-2 text-white"
-                >Edit Profile</button>
+                @if(current_user()->is($user))
+                    <button 
+                        type="submit" 
+                        class="bg-blue-500 rounded-lg shadow py-2 px-2 text-white"
+                    >Edit Profile</button>
+                @endif
                 <x-follow-button :user="$user"></x-follow-button>
             </div>
        </div>
