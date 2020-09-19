@@ -16,7 +16,11 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'username',
+        'name',
+        'avatar',
+        'email',
+        'password',
     ];
 
     /**
@@ -46,8 +50,9 @@ class User extends Authenticatable
         // return Tweet::where('user_id', $this->id)->latest()->get();
     }
 
-    public function avatar() {
-        return 'https://picsum.photos/280?u=' . $this->email;
+    public function getAvatarAttribute($value) {
+        // return 'https://picsum.photos/280?u=' . $this->email;
+        return asset($value);
     }
 
     public function tweets()

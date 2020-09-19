@@ -4,7 +4,7 @@
             <img src="/images/default-profile-banner.jpg" alt="">
             <img class="rounded-full mr-2 absolute bottom-0 transform -translate-x-1/2 translate-y-1/2" 
                 style="left:50%"
-                src="{{auth()->user()->avatar()}}" alt="profile pic" 
+                src="{{$user->avatar}}" alt="profile pic" 
                 width="150"
             >
         </div>
