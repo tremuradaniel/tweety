@@ -28,6 +28,6 @@ Route::middleware('auth')->group(function () {
 // Laravel > 7
 Route::get('/profiles/{user:name}', 'ProfilesController@show')->name('profile');
 
-Route::get('/explore', 'ExploreController@index');
+Route::get('/explore', 'ExploreController');
 
 Auth::routes();
