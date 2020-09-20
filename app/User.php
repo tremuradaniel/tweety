@@ -52,7 +52,7 @@ class User extends Authenticatable
 
     public function getAvatarAttribute($value) {
         // return 'https://picsum.photos/280?u=' . $this->email;
-        return asset($value);
+        return asset($value ?: '/images/default-avatar.jpeg');
     }
 
     public function tweets()

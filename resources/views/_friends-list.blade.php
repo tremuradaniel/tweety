@@ -3,7 +3,7 @@
     @forelse(auth()->user()->follows as $user)
         <li class="mb-4">
             <a href="{{ route('profile', $user) }}" class="flex items-center text-sm">
-                <img class="rounded-full mr-2" src="{{$user->avatar()}}" alt=""
+                <img class="rounded-full mr-2" src="{{$user->avatar}}" alt=""
                     width="50"
                     height="50"
                 >

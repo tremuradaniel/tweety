@@ -58,7 +58,7 @@
                        accept="image/*"
                 >
 
-                <img src="{{ $user->avatar() }}"
+                <img src="{{ $user->avatar }}"
                      alt="your avatar"
                      width="40"
                 >
