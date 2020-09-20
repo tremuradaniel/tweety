@@ -46,7 +46,7 @@ class User extends Authenticatable
         $friends = $this->follows()->pluck('id');
         return Tweet::whereIn('user_id', $friends)
             ->orWhere('user_id', $this->id)
-            ->latest()->paginate(50);
+            ->withLikes()->orderByDesc('id')->paginate(50);
         // return Tweet::where('user_id', $this->id)->latest()->get();
     }
 
@@ -65,7 +65,11 @@ class User extends Authenticatable
         $path = route('profile', $this->name);
         return $append ? "{$path}/{$append}" : $path;
     }
-    
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }    
 
     // Laravel 6<
     public function getRouteKeyName()

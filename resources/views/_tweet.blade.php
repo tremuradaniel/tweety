@@ -8,11 +8,18 @@
         </a>
     </div>
     <div>
-        <a href="{{ route('profile', $tweet->user) }}">
-            <h5 class="font-bold mb-4">{{$tweet->user->name}}</h5>
-        </a>
-        <p class="text-sm">
-            {{$tweet->body}}
+        <h5 class="font-bold mb-2">
+            <a href="{{ $tweet->user->path() }}">
+                {{ $tweet->user->name }}
+            </a>
+        </h5>
+
+        <p class="text-sm mb-3">
+            {{ $tweet->body }}
         </p>
+
+        @auth
+            <x-like-buttons :tweet="$tweet" />
+        @endauth
     </div>
 </div>

@@ -14,6 +14,7 @@ class ProfilesController extends Controller
             'user' => $user,
             'tweets' => $user
             ->tweets()
+            ->withLikes()
             ->paginate(3)
         ]);
     }

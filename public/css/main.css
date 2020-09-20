@@ -21234,6 +21234,10 @@ video {
           animation: bounce 1s infinite;
 }
 
+.likable-buttons {
+  display: flex;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
